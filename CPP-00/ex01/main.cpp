@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:56:11 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/04/14 17:37:51 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/04/29 07:43:33 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ int	main (void)
 	std::cout << "• SEARCH	: Searches for a contact in the PhoneBook" << std::endl;
 	std::cout << "• EXIT		: Exits the PhoneBook\n\n" << "\e[0m" << std::endl;
 
-	while (42) {
-		std::cout << "\e[1;32m" << "Enter a command :\t" << "\e[0m";
-		std::getline(std::cin, input);
+	std::cout << "\e[1;32m" << "Enter a command :\t" << "\e[0m";
+	while (std::getline(std::cin, input)) {
 		if (input == "EXIT")
 			break ;
 		else if (input == "ADD")
@@ -33,7 +32,8 @@ int	main (void)
 		else if (input == "SEARCH")
 			phonebook.printContact();
 		else
-			std::cout << "\e[1;31m" << "Invalid input !" << "\e[0m" << std::endl;
+			std::cout << "\e[1;31m" << "Invalid input ! Try again :-)" << "\e[0m" << std::endl;
+		std::cout << "\e[1;32m" << "Enter a command :\t" << "\e[0m";
 	}
 	return (0);
 }

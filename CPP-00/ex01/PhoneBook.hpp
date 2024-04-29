@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 17:05:09 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/04/14 17:52:43 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/04/29 07:28:04 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 #include "Contact.hpp"
 #include <cstdio>
+#include <cstring>
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 
 class PhoneBook {
@@ -31,7 +33,7 @@ class PhoneBook {
 		}
 		void		addContact();
 		void		printContact();
-		void		searchContact(int index);
+		void		searchContact();
 		std::string	getContactInfos();
 
 };

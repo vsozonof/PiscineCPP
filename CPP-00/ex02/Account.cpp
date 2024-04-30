@@ -6,14 +6,13 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 07:52:40 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/04/29 11:26:01 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:00:09 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
-#include <chrono>
 #include <ctime>
 
 int Account::_nbAccounts = 0;
@@ -45,9 +44,13 @@ Account::~Account()
 
 void Account::_displayTimestamp()
 {
-	auto now = std::chrono::system_clock::now();
-	auto in_time_t = std::chrono::system_clock::to_time_t(now);
-	std::cout << std::put_time(std::localtime(&in_time_t), "[%Y%m%d_%H%M%S] ");
+	time_t now = time(NULL);
+	struct tm *timeinfo = localtime(&now);
+
+    char buffer[80];
+    strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S] ", timeinfo);
+
+    std::cout << buffer;
 }
 
 void 	Account::displayAccountsInfos()
@@ -80,6 +83,29 @@ int 	Account::getNbWithdrawals()
 	return _totalNbWithdrawals;
 }
 
+bool	Account::makeWithdrawal(int withdrawal)
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex
+			<< ";p_amount:" << _amount;
+	if (withdrawal <= _amount)
+	{
+		std::cout << ";withdrawal:" << withdrawal
+					<< ";amount:" << _amount - withdrawal
+						<< ";nb_withdrawals:" << _nbWithdrawals + 1
+							<< std::endl;
+		_amount -= withdrawal;
+		_totalAmount -= withdrawal;
+		_nbWithdrawals += 1;
+		_totalNbWithdrawals += 1;
+	}
+	else
+	{
+		std::cout << ";withdrawal:refused" << std::endl;
+		return (1);
+	}
+	return (0);
+}
 
 void	Account::makeDeposit(int deposit)
 {
@@ -104,13 +130,4 @@ void	Account::displayStatus() const
 					<< ";deposits:" << _nbDeposits
 						<< ";withdrawals:" << _nbWithdrawals
 							<< std::endl;
-}
-
-int main ()
-{
-	Account account(500);
-	account.displayStatus();
-	account.makeDeposit(100);
-	account.displayStatus();
-	
 }

@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:44:10 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/04/30 15:54:48 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/05/15 08:29:29 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 void randomChump(std::string name)
 {
 	Zombie newZomb(name);
+	newZomb.announce();
 }

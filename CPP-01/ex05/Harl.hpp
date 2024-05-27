@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 09:36:17 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/05/20 06:09:23 by vsozonof         ###   ########.fr       */
+/*   Created: 2024/05/27 07:17:00 by vsozonof          #+#    #+#             */
+/*   Updated: 2024/05/27 10:15:20 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
 #include <iostream>
 #include <string>
 
-class Weapon
+class Harl
 {
 	private:
-		std::string type;
-	
+		void debug();
+		void warning();
+		void info();
+		void error();
+
 	public:
-		Weapon(std::string name);
-		~Weapon();
-		std::string & getType(void);
-		void setType(std::string newType);
+		Harl();
+		~Harl();
+		void complain(std::string level);
+		typedef void (Harl::*HarlMemberFct)();
 };
 
 #endif

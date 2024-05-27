@@ -6,7 +6,7 @@
 #    By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 14:09:59 by vsozonof          #+#    #+#              #
-#    Updated: 2024/05/27 03:31:30 by vsozonof         ###   ########.fr        #
+#    Updated: 2024/05/27 03:32:41 by vsozonof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,9 @@ CCC = c++
 CPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS = main.cpp \
-	   Weapon.cpp \
-	   HumanA.cpp \
-	   HumanB.cpp \
 
-DEPS = Weapon.hpp \
-	   HumanA.hpp \
-	   HumanB.hpp \ex03/Makefile
-
+DEPS = \
+	
 OBJS = $(SRCS:.cpp=.o)
 
 RM = rm -f

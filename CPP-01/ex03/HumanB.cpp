@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 09:36:17 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/05/20 06:09:23 by vsozonof         ###   ########.fr       */
+/*   Created: 2024/05/27 03:01:56 by vsozonof          #+#    #+#             */
+/*   Updated: 2024/05/27 03:28:22 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#include "HumanB.hpp"
 
-#include <iostream>
-#include <string>
+HumanB::HumanB(std::string name) : name(name), weap(NULL) {}
 
-class Weapon
+HumanB::~HumanB() {}
+
+void HumanB::setWeapon(Weapon &weapon)
 {
-	private:
-		std::string type;
-	
-	public:
-		Weapon(std::string name);
-		~Weapon();
-		std::string & getType(void);
-		void setType(std::string newType);
-};
+	weap = &weapon;
+}
 
-#endif
+void HumanB::attack()
+{
+	if (!weap)
+		std::cout << name << " is not armed, he can't attack !" << std::endl;
+	else
+		std::cout << name << " attacks with their " << weap->getType() << std::endl;
+}

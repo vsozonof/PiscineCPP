@@ -6,7 +6,7 @@
 #    By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 14:09:59 by vsozonof          #+#    #+#              #
-#    Updated: 2024/06/03 10:57:37 by vsozonof         ###   ########.fr        #
+#    Updated: 2024/06/07 08:56:19 by vsozonof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,11 @@ CPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS = main.cpp \
 	   Fixed.cpp \
+	   Point.cpp \
+	   bsp.cpp \
 
 DEPS = Fixed.hpp \
+	   Point.hpp \
 
 
 

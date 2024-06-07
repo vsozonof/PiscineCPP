@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 06:38:24 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/04 07:43:43 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/07 06:22:24 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,7 @@ class Fixed
 		float toFloat(void) const;
 		int	toInt(void) const;
 		
-		Fixed &operator=(const Fixed &f)
-		{
-			std::cout << "Copy assignment operator called" << std::endl;
-			if (this != &f)
-				this->fixed_point = f.fixed_point;
-			return *this;
-		}
+		Fixed &operator=(const Fixed &f);
 };
 		
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);

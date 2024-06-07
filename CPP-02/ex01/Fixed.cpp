@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 06:38:17 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/04 07:52:57 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/07 06:22:16 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,14 @@ float Fixed::toFloat (void) const
 int Fixed::toInt (void) const
 {
 	return fixed_point >> fractional_bits;
+}
+
+Fixed &Fixed::operator=(const Fixed &f)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &f)
+		this->fixed_point = f.fixed_point;
+	return *this;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) 

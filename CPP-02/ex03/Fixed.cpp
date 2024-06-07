@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 06:38:17 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/04 09:23:40 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/07 12:07:30 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ float Fixed::toFloat (void) const
 int Fixed::toInt (void) const
 {
 	return fixed_point >> fractional_bits;
+}
+
+Fixed &Fixed::operator=(const Fixed &f)
+{
+	if (this != &f)
+		this->fixed_point = f.fixed_point;
+	return *this;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) 
@@ -127,7 +134,7 @@ Fixed Fixed::operator* (const Fixed& n2) const
 Fixed Fixed::operator/ (const Fixed& n2) const
 {
 	if (fixed_point == 0 || n2.fixed_point == 0)
-		return Fixed();
+		return Fixed(0);
 	return Fixed(((float)fixed_point / 256) / ((float)n2.fixed_point / 256));
 }
 

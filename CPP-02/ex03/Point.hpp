@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 09:30:49 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/04 09:42:57 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:51:28 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ class Point
 		Point();
 		Point(const float x, const float y);
 		Point(const Point &f);
-		Point &operator=(const Point &f)
-		{
-			if (this != &f)
-				x = f.x;
-			return *this;
-		}
-}
+		~Point();
+		Point &operator=(const Point &f);
+		Fixed getY();
+		Fixed getX();
+};
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
+Fixed calculate_area(Point a, Point b, Point c);
 
 #endif

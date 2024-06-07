@@ -6,68 +6,45 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 06:38:06 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/04 09:07:35 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/07 12:43:37 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 int main( void ) 
 {
-	std::cout << "\n\t---- TESTS : EX02 ----\n" << std::endl;
-
-	std::cout << "\nTESTING ADDITION\n"<< std::endl;
-	Fixed const b1( Fixed( 5.05f ) + Fixed( 2 ) );
-	Fixed const b2( Fixed( 10 ) + Fixed( 2 ) );
-	Fixed const b3( Fixed( 1 ) + Fixed( 2 ) );
+	std::cout << "\n\t---- TESTS : EX03 ----\n" << std::endl;
+	std::cout << "Testing copy operator :\n" << std::endl;
 	
-	std::cout << "b1 = " << b1 << "\nb2 = " << b2 << "\nb3 = " << b3 << std::endl;
+	Point a99(55, 51);
+	Point a98(999, 111);
 
-	std::cout << "\nTESTING SOUSTRACTION\n" << std::endl;
-	Fixed const c1( Fixed( 5.05f ) - Fixed( 2 ) );
-	Fixed const c2( Fixed( 10) - Fixed( 2 ) );
-	Fixed const c3( Fixed( 1 ) - Fixed( 2 ) );
+	a99 = a98;
 
-	std::cout << "c1 = " << c1 << "\nc2 = " << c2 << "\nc3 = " << c3 << std::endl;
+	std::cout << a99.getX() << " - " << a99.getY() << std::endl;
+
 	
-	std::cout << "\nTESTING MULTIPLICATION\n"<< std::endl;
-	Fixed const e1( Fixed( 5.05f ) * Fixed( 2 ) );
-	Fixed const e2( Fixed( 10 ) * Fixed( 2 ) );
-	Fixed const e3( Fixed( 9 ) * Fixed( 2 ) );
-
-	std::cout << "e1 = " << e1 << "\ne2 = " << e2 << "\ne3 = " << e3 << std::endl;
-	
-	std::cout << "\nTESTING DIVISION\n" << std::endl;
-	std::cout << "VALID DIVISION\n" << std::endl;
-	Fixed const d1( Fixed( 5.05f ) / Fixed( 2 ) );
-	Fixed const d2( Fixed( 30 ) / Fixed( 2 ) );
-	Fixed const d3( Fixed( 3 ) / Fixed( 2 ) );
-
-	std::cout << "d1 = " << d1 << "\nd2 = " << d2 << "\nd3 = " << d3 << std::endl;
-
-	std::cout << "INVALID DIVISION\nWill set value to zero by default\n" << std::endl;
-	
-	Fixed const f( Fixed( 0 ) / Fixed( 2 ) );
-	Fixed const g( Fixed( 5.05f ) / Fixed( 0 ) );
-
-	std::cout << "f = " << f << "\ng = " << g << std::endl;
-	
-	std::cout << "\nTESTING INCREMENTATION AND DECREMENTATION\n" << std::endl;
-	
-	Fixed h(1.05f);
-	std::cout << "h++ -> " << h++ << "\n++h -> " << ++h  << "\nh-- -> " << h-- << "\n--h -> " << --h << std::endl;
-	
-	std::cout << "\nTESTING MIN MAX FUNCTIONS\n" << std::endl;
-
-	Fixed const a1(55);
-	Fixed const a2(55.05f);
-	Fixed a3(12);
-	Fixed a4(1555);
-
-	std::cout << Fixed::max( a1, a2 ) << std::endl;
-	std::cout << Fixed::min( a1, a2 ) << std::endl;
-	std::cout << Fixed::max( a3, a4 ) << std::endl;
-	std::cout << Fixed::min( a3, a4 ) << std::endl;
-
+	std::cout << "Testing BSP function :\n" << std::endl;
+	std::cout << "Test 1: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(1, 1)) << std::endl; // Expected: true
+	std::cout << "Test 2: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(6, 6)) << std::endl; // Expected: false
+	std::cout << "Test 3: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(0, 2)) << std::endl; // Expected: false
+	std::cout << "Test 4: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(0, 0)) << std::endl; // Expected: false
+	std::cout << "Test 5: " << bsp(Point(-3, -2), Point(0, -2), Point(-3, -6), Point(-2, -3)) << std::endl; // Expected: true
+	std::cout << "Test 6: " << bsp(Point(-2, -2), Point(0, -2), Point(-3, -6), Point(-2, -3)) << std::endl; // Expected: true
+	std::cout << "Test 7: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(2, 3)) << std::endl; // Expected: true
+	std::cout << "Test 8: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(2, 2)) << std::endl; // Expected: false
+	std::cout << "Test 9: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(0, 5)) << std::endl; // Expected: false
+	std::cout << "Test 10: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(5, 5)) << std::endl; // Expected: false
+	std::cout << "Test 11: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(0, 0)) << std::endl; // Expected: false
+	std::cout << "Test 12: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(5, 0)) << std::endl; // Expected: false
+	std::cout << "Test 13: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(0, 10)) << std::endl; // Expected: false
+	std::cout << "Test 14: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(2, 2)) << std::endl; // Expected: false
+	std::cout << "Test 15: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(5, 5)) << std::endl; // Expected: false
+	std::cout << "Test 16: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(0, -1)) << std::endl; // Expected: false
+	std::cout << "Test 17: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(1, -1)) << std::endl; // Expected: false
+	std::cout << "Test 18: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(-1, -1)) << std::endl; // Expected: false
+	std::cout << "Test 19: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(-1, 0)) << std::endl; // Expected: false
+	std::cout << "Test 20: " << bsp(Point(0, 0), Point(5, 0), Point(0, 5), Point(-1, 1)) << std::endl; // Expected: false
 	return (0);
 }

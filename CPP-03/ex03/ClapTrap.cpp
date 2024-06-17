@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:00:54 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/17 07:47:09 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/17 10:49:08 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,12 @@ ClapTrap::ClapTrap()
 {
 	std::cout << "ClapTrap constructor called" << std::endl;
 	name = "Norminet";
-	HP	 = 10;
-	EP	 = 10;
-	AD	 = 0;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "ClapTrap Name constructor called" << std::endl;
 	this->name = name;
-	HP	 = 100;
-	EP	 = 50;
-	AD	 = 20;
 }
 
 ClapTrap::~ClapTrap()

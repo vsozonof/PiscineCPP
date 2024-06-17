@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 07:41:09 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/10 07:49:06 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/17 07:57:22 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int main (void)
 	for (int i = 0; i <= 10; i++)
 		a.beRepaired(1);
 	a.attack("Poulet");
-	
+	c = a;
+	c.attack("Poulet");
 }

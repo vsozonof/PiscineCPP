@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 08:16:59 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/17 08:21:20 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/17 09:52:12 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap constructor called"
 				<< std::endl;
-	setHp(100);
-	setAd(20);
 	setEp(50);
 }
 
@@ -25,8 +23,6 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap name constructor called"
 				<< std::endl;
-	setHp(100);
-	setAd(20);
 	setEp(50);
 }
 ScavTrap::~ScavTrap()

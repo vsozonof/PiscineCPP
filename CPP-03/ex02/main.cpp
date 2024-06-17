@@ -6,18 +6,18 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 07:41:09 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/17 08:44:53 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/17 08:48:24 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main (void)
 {
-	std::cout << "---- EX01 : Tests ----" << std::endl;
+	std::cout << "---- EX02 : Tests ----" << std::endl;
 	
-	ScavTrap a("poisson");
-	ScavTrap b("Victor");
+	FragTrap a("poisson");
+	FragTrap b("Victor");
 
 	std::cout << "HP = " << a.getHp()
 				<< " EP = " << a.getEp()
@@ -31,9 +31,8 @@ int main (void)
 	a.attack("Victor");
 	a.attack("Victor");
 	b.takeDamage(100);
-	a.guardGate();
-
-	ScavTrap c(b);
+	a.highFivesGuys();
+	FragTrap c(b);
 	
 	std::cout << "HP = " << b.getHp()
 				<< " EP = " << b.getEp()

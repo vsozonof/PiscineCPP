@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:00:58 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/10 07:08:10 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/19 10:40:33 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class ClapTrap
 {
 	private:
-		std::string name;
-		int HP;
-		int EP;
-		int	AD;
+		std::string __Name;
+		int __HitPoints;
+		int __EnergyPoints;
+		int	__AttackDamage;
 
 	public:
 		ClapTrap();

@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:14:27 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/25 02:20:08 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:32:13 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ std::string Animal::getType() const
 	return __type;
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
 	std::cout << "Weird and unknown sound" << std::endl;
 }

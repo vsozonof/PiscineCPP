@@ -6,7 +6,7 @@
 #    By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 14:09:59 by vsozonof          #+#    #+#              #
-#    Updated: 2024/06/25 02:10:19 by vsozonof         ###   ########.fr        #
+#    Updated: 2024/06/25 20:22:10 by vsozonof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,14 @@ SRCS = main.cpp \
 	   Animal.cpp \
 	   Dog.cpp \
 	   Cat.cpp \
+	   WrongAnimal.cpp \
+	   WrongCat.cpp \
 
 DEPS = Animal.hpp \
 	   Dog.hpp \
 	   Cat.hpp \
+	   WrongAnimal.hpp \
+	   WrongCat.hpp \
 
 
 

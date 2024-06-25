@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:11:04 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/25 02:19:49 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:31:48 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Animal
 		Animal & operator=(Animal const & src);
 
 		std::string getType() const;
-		virtual void makeSound();
+		virtual void makeSound() const;
 };
 
 #endif

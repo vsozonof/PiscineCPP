@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:00:54 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/20 22:31:32 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/25 01:24:33 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,13 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 		std::cout << "ClapTrap: " << __Name
-					<< " can't r__EnergyPointsair his self!" << std::endl;
+					<< " can't repair his self!" << std::endl;
+}
+
+void	ClapTrap::printVal(void)
+{
+	std::cout << "Name: " << __Name << std::endl;
+	std::cout << "HitPoints: " << __HitPoints << std::endl;
+	std::cout << "EnergyPoints: " << __EnergyPoints << std::endl;
+	std::cout << "AttackDamage: " << __AttackDamage << std::endl;
 }

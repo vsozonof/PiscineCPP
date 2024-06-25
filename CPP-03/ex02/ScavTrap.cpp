@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 08:16:59 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/17 08:21:20 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/25 01:33:43 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap constructor called"
 				<< std::endl;
-	setHp(100);
-	setAd(20);
-	setEp(50);
+	__HitPoints = 100;
+	__AttackDamage = 20;
+	__EnergyPoints = 50;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap name constructor called"
 				<< std::endl;
-	setHp(100);
-	setAd(20);
-	setEp(50);
+	__HitPoints = 100;
+	__AttackDamage = 20;
+	__EnergyPoints = 50;
 }
 ScavTrap::~ScavTrap()
 {
@@ -35,13 +35,13 @@ ScavTrap::~ScavTrap()
 			<< std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap &f)
+ScavTrap::ScavTrap(ScavTrap &f) : ClapTrap(f)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
-	this->setName(f.getName());
-	this->setHp(f.getHp());
-	this->setEp(f.getEp());
-	this->setAd(f.getAd());
+	__Name = f.__Name;
+	__HitPoints = f.__HitPoints;
+	__EnergyPoints = f.__EnergyPoints;
+	__AttackDamage = f.__AttackDamage;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap &f)
@@ -49,17 +49,17 @@ ScavTrap &ScavTrap::operator=(ScavTrap &f)
 	std::cout << "ScavTrap equal operator overload called" << std::endl;
 	if (this != &f)
 	{
-		this->setName(f.getName());
-		this->setHp(f.getHp());
-		this->setEp(f.getEp());
-		this->setAd(f.getAd());
+		__Name = f.__Name;
+		__HitPoints = f.__HitPoints;
+		__EnergyPoints = f.__EnergyPoints;
+		__AttackDamage = f.__AttackDamage;
 	}
 	return *this;
 }
 
 void ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap: " << getName() << " now in guard mode" << std::endl;
+	std::cout << "ScavTrap: " << __Name << " now in guard mode" << std::endl;
 }
 
 void ScavTrap::announce(void)

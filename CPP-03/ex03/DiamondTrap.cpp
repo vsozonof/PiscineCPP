@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:00:55 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/17 10:50:19 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/25 02:05:56 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "DiamondTrap destructed" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap &f) : FragTrap(f), ScavTrap(f)
+DiamondTrap::DiamondTrap(DiamondTrap &f) : ClapTrap(f), FragTrap(f), ScavTrap(f)
 {
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
 	name = f.name;
@@ -44,11 +44,10 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap &f)
 	std::cout << "DiamondTrap equal operator overload called" << std::endl;
 	if (this != &f)
 	{
-		this->setName(f.getName());
-		this->setHp(f.getHp());
-		this->setEp(f.getEp());
-		this->setAd(f.getAd());
 		name = f.name;
+		__HitPoints = f.__HitPoints;
+		__EnergyPoints = f.__EnergyPoints;
+		__AttackDamage = f.__AttackDamage;
 	}
 	return *this;
 }
@@ -79,5 +78,5 @@ void DiamondTrap::beRepaired(unsigned int amount)
 void	DiamondTrap::whoAmI(void)
 {
 	std::cout << "Im DiamondTrap " << name << " !" << std::endl;
-	std::cout << "My ClapTRap name is : " << getName() << std::endl;
+	std::cout << "My ClapTRap name is : " << __Name << std::endl;
 }

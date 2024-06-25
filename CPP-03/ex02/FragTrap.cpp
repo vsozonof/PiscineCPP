@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 07:37:10 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/17 08:44:32 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/25 01:47:13 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@ FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "FragTrap constructor called"
 			<< std::endl;
-	setHp(100);
-	setEp(100);
-	setAd(30);
+	__HitPoints = 100;
+	__EnergyPoints = 100;
+	__AttackDamage = 30;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "FragTrap name constructor called"
 			<< std::endl;
-	setHp(100);
-	setEp(100);
-	setAd(30);
+	__HitPoints = 100;
+	__EnergyPoints = 100;
+	__AttackDamage = 30;
 }
 
-FragTrap::FragTrap(FragTrap &f)
+FragTrap::FragTrap(FragTrap &f) : ClapTrap(f)
 {
 	std::cout << "FragTrap copy constructor called" << std::endl;
-	this->setName(f.getName());
-	this->setHp(f.getHp());
-	this->setEp(f.getEp());
-	this->setAd(f.getAd());
+	__Name = f.__Name;
+	__HitPoints = f.__HitPoints;
+	__EnergyPoints = f.__EnergyPoints;
+	__AttackDamage = f.__AttackDamage;
 }
 
 FragTrap::~FragTrap()
@@ -50,10 +50,10 @@ FragTrap &FragTrap::operator=(FragTrap &f)
 	std::cout << "ScavTrap equal operator overload called" << std::endl;
 	if (this != &f)
 	{
-		this->setName(f.getName());
-		this->setHp(f.getHp());
-		this->setEp(f.getEp());
-		this->setAd(f.getAd());
+		__Name = f.__Name;
+		__HitPoints = f.__HitPoints;
+		__EnergyPoints = f.__EnergyPoints;
+		__AttackDamage = f.__AttackDamage;
 	}
 	return *this;
 }
@@ -83,5 +83,5 @@ void FragTrap::beRepaired(unsigned int amount)
 
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap : high-five request!" << std::endl;
+	std::cout << "FragTrap : " << __Name << " high-five requested!" << std::endl;
 }

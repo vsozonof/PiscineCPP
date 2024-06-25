@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 07:53:56 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/17 10:17:41 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/25 02:03:10 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap();
 		ScavTrap(std::string name);
 		ScavTrap(ScavTrap &f);
-		~ScavTrap();
+		virtual ~ScavTrap();
 		ScavTrap &operator=(ScavTrap &f);
 		void	guardGate(void);
 		void 	announce(void);

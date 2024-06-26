@@ -6,27 +6,29 @@
 #    By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 14:09:59 by vsozonof          #+#    #+#              #
-#    Updated: 2024/06/26 08:43:44 by vsozonof         ###   ########.fr        #
+#    Updated: 2024/06/26 09:55:18 by vsozonof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
 
 CC = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 SRCS = main.cpp \
-	   Animal.cpp \
+	   AAnimal.cpp \
 	   Dog.cpp \
 	   Cat.cpp \
 	   WrongAnimal.cpp \
 	   WrongCat.cpp \
+	   Brain.cpp \
 
-DEPS = Animal.hpp \
+DEPS = AAnimal.hpp \
 	   Dog.hpp \
 	   Cat.hpp \
 	   WrongAnimal.hpp \
 	   WrongCat.hpp \
+	   Brain.hpp \
 
 
 

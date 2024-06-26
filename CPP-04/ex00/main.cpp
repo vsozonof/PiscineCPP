@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:19:02 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/25 20:37:05 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/26 08:40:07 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ std::cout << i->getType() << " " << std::endl;
 i->makeSound(); //will output the cat sound!
 j->makeSound();
 meta->makeSound();
+
+delete meta;
+delete j;
+delete i;
+
 return 0;
 }
 

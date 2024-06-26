@@ -6,29 +6,29 @@
 #    By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 14:09:59 by vsozonof          #+#    #+#              #
-#    Updated: 2024/06/26 08:43:44 by vsozonof         ###   ########.fr        #
+#    Updated: 2024/06/26 15:08:23 by vsozonof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
 
 CC = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
 
 SRCS = main.cpp \
-	   Animal.cpp \
-	   Dog.cpp \
-	   Cat.cpp \
-	   WrongAnimal.cpp \
-	   WrongCat.cpp \
+	   AMateria.cpp \
+	   Ice.cpp \
+	   Cure.cpp \
+	   Character.cpp \
+	   MateriaSource.cpp \
 
-DEPS = Animal.hpp \
-	   Dog.hpp \
-	   Cat.hpp \
-	   WrongAnimal.hpp \
-	   WrongCat.hpp \
-
-
+DEPS = AMateria.hpp \
+	   Ice.hpp \
+	   Cure.hpp \
+	   ICharacter.hpp \
+	   Character.hpp \
+	   IMateriaSource.hpp \
+	   MateriaSource.hpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:58:32 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/26 15:09:27 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/29 22:51:46 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,29 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 
 void MateriaSource::learnMateria(AMateria *m)
 {
-	for (int i = 0; i < 4; i++)
+	int i = 0;
+	while (i < 4 && materia[i] != NULL)
+		i++;
+	if (i < 4)
 	{
-		if (!materia[i])
-		{
-			materia[i] = m;
-			break;
-		}
+		materia[i] = m;
+		std::cout << "Materia learnt in slot " << i << std::endl;
+	}
+	else
+	{
+		delete m;
+		std::cout << "MateriaSource is full, the materia is lost" << std::endl;
 	}
 }
 
 AMateria * MateriaSource::createMateria(std::string const & type)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (materia[i] && materia[i]->getType() == type)
+	int i = 0;
+	while (i < 4 && materia[i] != NULL)
+		i++;
+	if (i == 4)
+		return NULL;
+	if (materia[i] && materia[i]->getType() == type)
 			return materia[i]->clone();
-	}
 	return NULL;
 }

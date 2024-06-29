@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:19:02 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/26 10:08:46 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/29 21:05:43 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 int main()
 {
+	// AAnimal test;
 	Cat cat("Cat");
 	Dog dog("Dog");
 

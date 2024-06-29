@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:24:32 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/26 14:09:27 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/29 21:43:36 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ICharacter
 	protected:
 		std::string _name;
 		AMateria * _materia[4];
+		AMateria * _dropped[4];
 		
 	public:
 		virtual ~ICharacter() {}

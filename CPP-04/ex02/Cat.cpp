@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 16:45:54 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/26 10:04:37 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/29 21:01:47 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Cat::Cat(std::string type) : AAnimal(type)
 Cat::Cat(Cat const & src) : AAnimal(src)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = src;
+	this->_brain = new Brain(*src._brain);
 }
 
 Cat& Cat::operator=(Cat const & src)

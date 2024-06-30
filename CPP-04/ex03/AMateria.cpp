@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:49:33 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/30 15:14:53 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:48:57 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void AMateria::use(ICharacter & target)
 
 std::string const & AMateria::getType() const
 {
-	return _type;
+	return this->_type;
 }

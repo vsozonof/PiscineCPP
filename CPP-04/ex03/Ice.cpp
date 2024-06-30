@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:08:34 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/30 15:33:10 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:40:54 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,9 @@ AMateria * Ice::clone() const
 void Ice::use(ICharacter & target)
 {
 	std::cout << "Ice : shoots an ice bolt at " << target.getName() << std::endl;
+}
+
+std::string const & Ice::getType() const
+{
+	return _type;
 }

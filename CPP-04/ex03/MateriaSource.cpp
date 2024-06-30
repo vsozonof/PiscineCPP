@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:58:32 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/30 15:33:32 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:47:59 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ AMateria * MateriaSource::createMateria(std::string const & type)
 		return materia[i]->clone();
 	}
 	std::cout << "Materia not found" << std::endl;
-	return NULL;
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:20:18 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/30 15:32:08 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:40:59 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,9 @@ AMateria * Cure::clone() const
 void Cure::use(ICharacter & target)
 {
 	std::cout << "Cure : heals " << target.getName() << "'s wounds" << std::endl;
+}
+
+std::string const & Cure::getType() const
+{
+	return _type;
 }

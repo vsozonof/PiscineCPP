@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:48:30 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/30 15:35:29 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:50:51 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int main()
 	ICharacter* me = new Character("me");
 	
 	AMateria* tmp;
-	tmp = src->createMateria("ie");
+	tmp = src->createMateria("iece");
+	if (tmp)
+		std::cout << tmp->getType() << std::endl;
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);

@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:39:19 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/29 22:52:46 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:34:18 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Character::Character()
 {
-	std::cout << "Character default constructor called" << std::endl;
 	_name = "defaultName";
 	for (int i = 0; i < 4; i++)
 	{
@@ -25,7 +24,6 @@ Character::Character()
 
 Character::Character(std::string const & name)
 {
-	std::cout << "Character constructor called" << std::endl;
 	_name = name;
 	for (int i = 0; i < 4; i++)
 	{
@@ -36,24 +34,25 @@ Character::Character(std::string const & name)
 
 Character::Character(Character const & src)
 {
-	std::cout << "Character copy constructor called" << std::endl;
 	*this = src;
 }
 
 Character & Character::operator=(Character const & rhs)
 {
-	std::cout << "Assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
 		_name = rhs._name;
-		*_materia = *rhs._materia;
+		for (int i = 0; i < 4; i++)
+		{
+			_materia[i] = rhs._materia[i];
+			_dropped[i] = rhs._dropped[i];
+		}
 	}
 	return *this;
 }
 
 Character::~Character()
 {
-	std::cout << "Character destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		if (_materia[i] != NULL)
 			delete _materia[i];

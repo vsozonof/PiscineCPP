@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:58:32 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/29 22:51:46 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:33:32 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 MateriaSource::MateriaSource()
 {
-	std::cout << "MateriaSource constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		materia[i] = NULL;
 }
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "MateriaSource destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (materia[i])
@@ -31,7 +29,6 @@ MateriaSource::~MateriaSource()
 
 MateriaSource::MateriaSource(const MateriaSource &src)
 {
-	std::cout << "MateriaSource copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (src.materia[i])
@@ -43,7 +40,6 @@ MateriaSource::MateriaSource(const MateriaSource &src)
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 {
-	std::cout << "MateriaSource assignation operator called" << std::endl;
 	if (this != &rhs)
 	{
 		for (int i = 0; i < 4; i++)
@@ -79,11 +75,13 @@ void MateriaSource::learnMateria(AMateria *m)
 AMateria * MateriaSource::createMateria(std::string const & type)
 {
 	int i = 0;
-	while (i < 4 && materia[i] != NULL)
+	while (i < 4 && materia[i] != NULL && materia[i]->getType() != type)
 		i++;
-	if (i == 4)
-		return NULL;
-	if (materia[i] && materia[i]->getType() == type)
-			return materia[i]->clone();
+	if (i < 4 && materia[i] != NULL)
+	{
+		std::cout << "Materia found" << std::endl;
+		return materia[i]->clone();
+	}
+	std::cout << "Materia not found" << std::endl;
 	return NULL;
 }

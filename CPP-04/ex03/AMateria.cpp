@@ -6,25 +6,18 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:49:33 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/06/29 21:30:55 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:14:53 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria() : _type("default") 
-{
-	std::cout << "AMateria default constructor called" << std::endl;
-}
+AMateria::AMateria() : _type("default") {}
 
-AMateria::AMateria(std::string const & type) : _type(type)
-{
-	std::cout << "AMateria constructor called" << std::endl;
-}
+AMateria::AMateria(std::string const & type) : _type(type) {}
 
 AMateria & AMateria::operator=(AMateria const & rhs)
 {
-	std::cout << "AMateria assignation operator called" << std::endl;
 	if (this != &rhs)
 		_type = rhs._type;
 	return *this;
@@ -32,14 +25,10 @@ AMateria & AMateria::operator=(AMateria const & rhs)
 
 AMateria::AMateria(AMateria const & src)
 {
-	std::cout << "AMateria copy constructor called" << std::endl;
 	*this = src;
 }
 
-AMateria::~AMateria()
-{
-	std::cout << "AMateria destructor called" << std::endl;
-}
+AMateria::~AMateria() {}
 
 void AMateria::use(ICharacter & target)
 {

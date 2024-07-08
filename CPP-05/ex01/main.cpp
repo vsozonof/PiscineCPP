@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 07:56:53 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/05 10:03:02 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/07/08 02:08:42 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,9 @@ int main()
 	try
 	{
 		b1.signForm(f1);
-		b2.signForm(f1);
-		b3.signForm(f1);
 		b4.signForm(f1);
 		b5.signForm(f1);
 		b1.signForm(f2);
-		b2.signForm(f2);
-		b3.signForm(f2);
 		b4.signForm(f2);
 		b5.signForm(f2);
 	}
@@ -68,7 +64,18 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
-			
+	
+	std::cout << "\nExecute" << std::endl;
+	try
+	{
+		b1.executeForm(f1);
+		b1.executeForm(f2);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
 	std::cout << "\nDestructors" << std::endl;
 
 	return 0;

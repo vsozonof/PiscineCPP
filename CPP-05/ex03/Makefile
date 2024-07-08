@@ -6,7 +6,7 @@
 #    By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 14:09:59 by vsozonof          #+#    #+#              #
-#    Updated: 2024/07/08 03:14:18 by vsozonof         ###   ########.fr        #
+#    Updated: 2024/07/08 03:43:50 by vsozonof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,14 @@ SRCS = main.cpp \
 	   SchrubberyCreationForm/SchrubberyCreationForm.cpp \
 	   RobotomyRequestForm/RobotomyRequestForm.cpp \
 	   PresidentialPardonForm/PresidentialPardonForm.cpp \
+	   Intern/Intern.cpp \
 
 DEPS = Bureaucrat/Bureaucrat.hpp\
 	   AForm/AForm.hpp \
 	   SchrubberyCreationForm/SchrubberyCreationForm.hpp \
 	   RobotomyRequestForm/RobotomyRequestForm.hpp \
 	   PresidentialPardonForm/PresidentialPardonForm.hpp \
+	   Intern/Intern.hpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

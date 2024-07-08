@@ -58,6 +58,32 @@ std::string const & Bureaucrat::getName() const
 	return this->_name;
 }
 
+void Bureaucrat::signForm(AForm &form)
+{
+	if (form.getSigned())
+		std::cout << this->_name << " cannot sign " << form.getName() << " because form is already signed" << std::endl;
+	else if (this->_grade > form.getGradeToSign())
+		std::cout << this->_name << " cannot sign " << form.getName() << " because grade is too low" << std::endl;
+	else
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm  & form)
+{
+	if (!form.getSigned())
+		std::cout << this->_name << " cannot execute " << form.getName() << " because form is not signed" << std::endl;
+	else if (this->_grade > form.getGradeToExec())
+		std::cout << this->_name << " cannot execute " << form.getName() << " because grade is too low" << std::endl;
+	else
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executes " << form.getName() << std::endl;
+	}
+}
+
 int Bureaucrat::getGrade() const
 {
 	return this->_grade;
@@ -93,18 +119,5 @@ std::ostream & operator<<(std::ostream& os, Bureaucrat const & rhs)
 {
 	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
 	return os;
-}
-
-void Bureaucrat::signForm(AForm &form)
-{
-	if (form.getSigned())
-		std::cout << this->_name << " cannot sign " << form.getName() << " because form is already signed" << std::endl;
-	else if (this->_grade > form.getGradeToSign())
-		std::cout << this->_name << " cannot sign " << form.getName() << " because grade is too low" << std::endl;
-	else
-	{
-		form.beSigned(*this);
-		std::cout << this->_name << " signs " << form.getName() << std::endl;
-	}
 }
 

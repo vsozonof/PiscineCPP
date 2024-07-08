@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 09:12:16 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/05 10:02:24 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/07/08 02:07:50 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,15 @@ int Form::GradeTooLowException()
 {
 	std::cout << "Grade is too low" << std::endl;
 	return 0;
+}
+
+void Form::execute(const Bureaucrat & executor) const
+{
+	if (!getSigned())
+		std::cout << executor.getName() << " cannot execute " << _name << " because form is not signed" << std::endl;
+	else if (executor.getGrade() > _gradeToExec)
+		std::cout << executor.getName() << " cannot execute " << _name << " because grade is too low" << std::endl;
+	else
+		std::cout << executor.getName() << " executes " << _name << std::endl;
 }
 

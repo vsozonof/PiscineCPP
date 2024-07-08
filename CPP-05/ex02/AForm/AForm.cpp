@@ -6,13 +6,17 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 09:12:16 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/05 12:00:15 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/07/08 02:46:21 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
+#include "../Bureaucrat/Bureaucrat.hpp"
 
+
+// ! **************************************************************************
+// ? ******* Constructors, Destructor and operator overload    ****************
+// ! **************************************************************************
 
 AForm::AForm() : _name("default"), _gradeToSign(150), _gradeToExec(150), _signed(false) 
 {}
@@ -28,6 +32,8 @@ AForm::AForm(std::string const name, int const gradeToSign, int const gradeToExe
 	}
 }
 
+AForm::AForm(AForm const & src) : _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExec(src._gradeToExec), _signed(src._signed) {}
+
 AForm::~AForm() {}
 
 AForm & AForm::operator=(AForm const & rhs)
@@ -37,6 +43,24 @@ AForm & AForm::operator=(AForm const & rhs)
 	}
 	return *this;
 }
+
+std::ostream & operator<<(std::ostream & o, AForm const & form)
+{
+	o << "Form " << form.getName() << " is ";
+	if (form.getSigned())
+		o << "signed" << std::endl;
+	else 
+	{
+		o << "not signed";
+		o << " and requires grade " << form.getGradeToSign() 
+		  << " to sign and grade " << form.getGradeToExec() << " to execute" << std::endl;
+	}
+	return o;
+}
+
+// ! **************************************************************************
+// ? *************************** Getters and setters **************************
+// ! **************************************************************************
 
 std::string const & AForm::getName() const
 {
@@ -58,32 +82,9 @@ bool AForm::getSigned() const
 	return _signed;
 }
 
-void AForm::beSigned(const Bureaucrat & bureaucrat)
-{
-	if (bureaucrat.getGrade() > _gradeToSign) 
-		throw AForm::GradeTooLowException();
-	else if (_signed)
-		std::cout << bureaucrat.getName() << " cannot sign " << _name << " because form is already signed" << std::endl;
-	else
-	{
-		_signed = true;
-		std::cout << bureaucrat.getName() << " signs " << _name << std::endl;
-	}
-}
-
-std::ostream & operator<<(std::ostream & o, AForm const & form)
-{
-	o << "Form " << form.getName() << " is ";
-	if (form.getSigned())
-		o << "signed" << std::endl;
-	else 
-	{
-		o << "not signed";
-		o << " and requires grade " << form.getGradeToSign() 
-		  << " to sign and grade " << form.getGradeToExec() << " to execute" << std::endl;
-	}
-	return o;
-}
+// ! **************************************************************************
+// ? *************************** Exception  ***********************************
+// ! **************************************************************************
 
 std::out_of_range AForm::GradeTooHighException()
 {
@@ -93,5 +94,10 @@ std::out_of_range AForm::GradeTooHighException()
 std::out_of_range AForm::GradeTooLowException()
 {
 	throw std::out_of_range("Grade is too low");
+}
+
+std::out_of_range AForm::FormNotSignedException()
+{
+	throw std::out_of_range("Form is not signed");
 }
 

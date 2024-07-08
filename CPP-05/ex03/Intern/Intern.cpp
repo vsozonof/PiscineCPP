@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 03:28:00 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/08 04:16:32 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/07/08 04:35:16 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ Intern & Intern::operator=(Intern const & rhs)
 	return *this;
 }
 
-AForm* makePresidentialPardonForm(std::string& target) 
+AForm* Intern::makePresidentialPardonForm(std::string target) 
 {
     return new PresidentialPardonForm(target);
 }
 
-AForm* makeRobotomyRequestForm(std::string& target) 
+AForm* Intern::makeRobotomyRequestForm(std::string target) 
 {
     return new RobotomyRequestForm(target);
 }
 
-AForm* makeSchrubberyCreationForm(std::string& target) 
+AForm* Intern::makeSchrubberyCreationForm(std::string target) 
 {
     return new SchrubberyCreationForm(target);
 }

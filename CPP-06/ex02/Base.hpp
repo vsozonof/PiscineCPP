@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:04:00 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/08 10:10:53 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:20:40 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 # define BASE_HPP
 
 #include <iostream>
+#include <string>
+#include <ctime>
 #include <cstdlib>
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+
 
 class Base
 {
 	public:
-		Base() {};
-		virtual ~Base() {};
-		Base *generate(void);
-		void identfy(Base *p);
-		void identfy(Base &p);
+		virtual ~Base();
 };
+
+Base *generate();
+void identify(Base *p);
+void identify(Base &p);
 
 #endif

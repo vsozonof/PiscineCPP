@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 10:06:38 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/08 10:15:45 by vsozonof         ###   ########.fr       */
+/*   Created: 2024/07/08 16:08:20 by vsozonof          #+#    #+#             */
+/*   Updated: 2024/07/08 16:08:28 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 # include "Base.hpp"
 
-class C : public Base
-{
-	public:
-		C() {};
-		virtual ~C() {};
-};
+class C : public Base {};
 
 #endif

@@ -6,7 +6,7 @@
 #    By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 14:09:59 by vsozonof          #+#    #+#              #
-#    Updated: 2024/07/08 10:11:40 by vsozonof         ###   ########.fr        #
+#    Updated: 2024/07/08 16:17:49 by vsozonof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,11 @@ CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 SRCS = main.cpp \
 	   Base.cpp \
 	   
+	   
 DEPS = Base.hpp \
 	   A.hpp \
 	   B.hpp \
-	   C.hpp \
-
-
+	   C.hpp \   
 
 OBJS = $(SRCS:.cpp=.o)
 

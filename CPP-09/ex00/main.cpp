@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 07:41:41 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/14 20:01:27 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/07/15 06:44:49 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 
 void checkValidity(const std::string &date, double amount, BitcoinExchange& rate)
 {
-    (void)rate; // Assuming rate is used elsewhere
-
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-' || date.empty())
 		throw std::runtime_error(RED "Invalid date format" DEFAULT);
 

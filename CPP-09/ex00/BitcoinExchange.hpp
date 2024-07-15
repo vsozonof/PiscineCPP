@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 07:38:19 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/12 10:03:17 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/07/14 18:11:28 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include <cstdlib>
 
 
 class BitcoinExchange
 {
+	private:
+		std::map<std::string, double> _exchange;
+	
 	public:
-		BitcoinExchange(std::string filename);
+		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &src);
 		~BitcoinExchange();
 
 		BitcoinExchange &operator=(const BitcoinExchange &rhs);
 
-
-	private:
-		BitcoinExchange();
-		std::map<std::string, double> _exchange;
-		std::string _filename;
-		
+		void printExchange();
+		double getRate(std::string date);	
 };
 
 #endif

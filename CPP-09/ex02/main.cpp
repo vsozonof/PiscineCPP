@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 08:09:18 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/15 12:42:50 by vsozonof         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:11:11 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ int main(int argc, char **argv)
 	}
 
 	pm.mergeSort(list);
-	// pm.mergeSort(vector);
-
-	std::cout << "OK" << std::endl;
+	pm.mergeSort(vector);
+	
 	return 0;
 }

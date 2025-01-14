@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 12:14:40 by vsozonof          #+#    #+#             */
-/*   Updated: 2025/01/14 19:42:07 by vsozonof         ###   ########.fr       */
+/*   Created: 2024/05/31 06:38:24 by vsozonof          #+#    #+#             */
+/*   Updated: 2024/06/07 06:22:45 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+#include <iostream>
 
-PmergeMe::PmergeMe()
-{
-}
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-PmergeMe::~PmergeMe()
+class Fixed
 {
-}
+	private:
+		int fixed_point;
+		static const int fractional_bits = 8;
+	
+	public:
+		Fixed();
+		Fixed (const Fixed &f);
+		~Fixed();
+		Fixed &operator=(const Fixed &f);
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
+};
 
-PmergeMe::PmergeMe(const PmergeMe &src)
-{
-	*this = src;
-}
-
-PmergeMe &PmergeMe::operator=(const PmergeMe &rhs)
-{
-	if (this == &rhs)
-		return (*this);
-	return (*this);
-}
+#endif

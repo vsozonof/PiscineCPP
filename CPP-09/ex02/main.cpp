@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 08:09:18 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/17 18:11:11 by vsozonof         ###   ########.fr       */
+/*   Updated: 2025/01/14 20:41:35 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ int main(int argc, char **argv)
 		std::cerr << BOLD_YELLOW "Usage: " << DEFAULT "./ex02 n1 n2 ..." << std::endl;
 		return 1;
 	}
-	checkArgs(argc, argv);
 
-	PmergeMe pm;
+	checkArgs(argc, argv);
 
 	std::list<int> list;
 	std::vector<int> vector;
@@ -49,8 +48,12 @@ int main(int argc, char **argv)
 		vector.push_back(n);
 	}
 
-	pm.mergeSort(list);
-	pm.mergeSort(vector);
+	PmergeMe sort;
+	std::cout << BOLD_YELLOW << "\n-\t\t SORTING WITH STD::LIST \t\t-" << DEFAULT << std::endl;
+	sort.FordJohnson(list);
+
+	std::cout << BOLD_YELLOW << "\n-\t\t SORTING WITH STD::VECTOR \t\t-" << DEFAULT << std::endl;
+	sort.FordJohnson(vector);
 	
 	return 0;
 }

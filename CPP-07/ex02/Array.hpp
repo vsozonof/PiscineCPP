@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 14:19:02 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/09 15:08:36 by vsozonof         ###   ########.fr       */
+/*   Updated: 2025/01/26 23:55:59 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class Array
 				delete[] _array;
 				_size = rhs._size;
 				_array = new T[_size];
-				for (int i = 0; i < _size; i++)
+				for (unsigned int i = 0; i < _size; i++)
 					_array[i] = rhs._array[i];
 			}
 			return *this;
@@ -65,7 +65,7 @@ class Array
 			return true;
 		}
 
-		bool &operator!=(Array const &rhs) const
+		bool operator!=(Array const &rhs) const
 		{
 			return !(*this == rhs);
 		}

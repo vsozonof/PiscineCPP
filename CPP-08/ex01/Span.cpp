@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 13:09:25 by vsozonof          #+#    #+#             */
-/*   Updated: 2024/07/10 14:06:48 by vsozonof         ###   ########.fr       */
+/*   Updated: 2025/01/31 09:57:18 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void Span::addNumber(int n)
 int Span::shortestSpan()
 {
 	if (_v.size() < 2)
-		throw std::out_of_range("Not enough elements");
+		throw std::out_of_range("Not enough span elements, action impossible");
 	std::sort(_v.begin(), _v.end());
 	int minSpan = std::numeric_limits<int>::max();
 	for (size_t i = 1; i < _v.size(); i++)
@@ -58,17 +58,18 @@ int Span::shortestSpan()
 int Span::longestSpan()
 {
 	if (_v.size() < 2)
-		throw std::out_of_range("Not enough elements");
+		throw std::out_of_range("Not enough span elements, action impossible");
 	std::sort(_v.begin(), _v.end());
 	return (_v[_v.size() - 1] - _v[0]);
 }
 
 void Span::print_infos()
 {
-	std::cout << "Number of elements : " << _v.size() << std::endl;
-	std::cout << "Max number of elements : " << _n << std::endl;
-	std::cout << "Smallest number : " << _v[0] << std::endl;
-	std::cout << "2nd Smallest number : " << _v[1] << std::endl;
-	std::cout << "Biggest number : " << _v[_v.size() - 1] << std::endl;
-	std::cout << "2nd Biggest number : " << _v[_v.size() - 2] << std::endl;
+	std::cout << "/n~~ Printing Span Informations ~~";
+	std::cout << "- Max Span elements : " << _n << std::endl;
+	std::cout << "- Number of Span elements : " << _v.size() << std::endl;
+	std::cout << "- Smallest number found : " << _v[0] << std::endl;
+	std::cout << "- 2nd Smallest number found : " << _v[1] << std::endl;
+	std::cout << "- Largest number found : " << _v[_v.size() - 1] << std::endl;
+	std::cout << "- 2nd Largest number found : " << _v[_v.size() - 2] << std::endl;
 }

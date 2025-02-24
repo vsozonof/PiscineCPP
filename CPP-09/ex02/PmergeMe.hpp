@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 08:12:24 by vsozonof          #+#    #+#             */
-/*   Updated: 2025/01/14 20:50:57 by vsozonof         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:51:19 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class PmergeMe
 		Container merge (const Container &left, const Container &right);
 		
 		template <typename Container>
-		void	doFindAndMoveSmallest(Container &cont, Container &Min);
+		void	doFindAndMoveSmallest(Container &Max, Container &Min);
 
 		template <typename Container>
 		void	doFindInsertionOrder(Container &to_insert, Container &Min);
@@ -65,6 +65,11 @@ class PmergeMe
 		void	doSearchPositionAndInsert(Container &Max, int n);
 };
 
+
+// ? This function will print out 3 different data :
+// ? 1. A part of the set of integers, BEFORE sorting
+// ? 2. A part of the set of integers, AFTER  sorting
+// ? 3. The time needed to sort the integers.
 template <typename Container>
 void PmergeMe::FordJohnson(Container &cont)
 {
@@ -94,6 +99,8 @@ void PmergeMe::FordJohnson(Container &cont)
 		it++;
 	}
 	std::cout << "[...]\n" << std::endl;
+	
+	// ? Debug : prints all the container's integers
 	// for (typename Container::iterator full_it = cont.begin(); full_it != cont.end(); full_it++)
 	// {
 	// 	std::cout << "[" << *full_it << "] ";
@@ -101,6 +108,9 @@ void PmergeMe::FordJohnson(Container &cont)
 	// }
 }
 
+
+// ? This function handles the set of integers through
+// ? every steps of the Ford Johnson Algorithm
 template <typename Container>
 Container PmergeMe::doSort(Container &cont)
 {
@@ -112,24 +122,42 @@ Container PmergeMe::doSort(Container &cont)
 	Container Min;
 	Container toInsert;
 
-	// Etape 1: Pair and compare
+	// ? Step 1: Pair and compare
 	doPairAndCompare(cont, Max, Min, size);
+	// for (typename Container::iterator full_it = Min.begin(); full_it != Min.end(); full_it++)
+	// {
+	// 	std::cout << "[" << *full_it << "] ";
+	// 	full_it++;
+	// }
 
-	// Etape 2: Recursive merge sort
+	
+	
+	// ? Step 2: Recursive merge sort
 	doRecursiveMergeSort(Max);
-
-	// Etape 3: Find and move smallest number
+	
+	// ? Step 3: Find and move smallest number
 	doFindAndMoveSmallest(Max, Min);
 
-	// Etape 4: Find insertion order
+	// ? Step 4: Find insertion order
 	doFindInsertionOrder(toInsert, Min);
-
-	// Etape 5: Insertion and binary search
+	
+	// ? Step 5: Insertion and binary search
 	doInsertionAndBinarySearch(toInsert, Max);
 
 	return Max;
 }
 
+
+// ? Step 1: Pair and Compare
+// ? This function will form multiple pairs of integers and do a comparison
+// ? within each pairs :
+// ? - the smallest number of each pair is added to the Min container
+// ? - the greatest number of each pair is added to the Max container
+// * Exemple :
+// * - 10 9 8 7 6 5 -> (10 9) (8 7) (6 5)
+// * Min : 9 7 5
+// * Max : 10 8 6  
+// ! If the initial set of integers is odd, the last integers will be moved to Min.
 template <typename Container>
 void PmergeMe::doPairAndCompare(Container &cont, Container &Max, Container &Min, int size)
 {
@@ -165,6 +193,30 @@ void PmergeMe::doPairAndCompare(Container &cont, Container &Max, Container &Min,
 	}
 }
 
+
+// ? Step 2: Recursive Merge Sort
+// ? This function will, along with the "merge" function, perform a
+// ? recursive merge sort on the Max container.
+// ?
+// ? The container is recursively splitted into two halves, left and right.
+// ? Once there's only one integer, the function returns and will go back into the
+// ? call stack, and merge everything in an ascending order.
+// * Exemple :
+// * Initial call : doRecursiveMergeSort([4, 3, 2, 1])
+// * |
+// * |-> doRecursiveMergeSort([4, 3])
+// * |	|-> doRecursiveMergeSort([4]) -> 1 digit -> returns
+// * |	|-> doRecursiveMergeSort([3]) -> 1 digit -> returns
+// * |	|-> merge([4], [3]) -> [3, 4]
+// * |
+// * |
+// * |-> doRecursiveMergeSort([2, 1])
+// * |	|-> doRecursiveMergeSort([2]) -> 1 digit -> returns
+// * |	|-> doRecursiveMergeSort([1]) -> 1 digit -> returns
+// * |	|-> merge([2], [1]) -> [1, 2]
+// * |
+// * |
+// * |-> merge([3, 4], [1, 2]) -> [1, 2, 3, 4]
 template <typename Container>
 void PmergeMe::doRecursiveMergeSort(Container &Max)
 {
@@ -196,6 +248,11 @@ void PmergeMe::doRecursiveMergeSort(Container &Max)
 	
 }
 
+// ? Step 2.1: merge
+// ? This function will merge two sets of integers, and sort them
+// ? in ascending order
+// * Exemple :
+// * merge([3, 4], [1, 2]) -> [1, 2, 3, 4]
 template <typename Container>
 Container PmergeMe::merge(const Container &left, const Container &right)
 {
@@ -231,8 +288,17 @@ Container PmergeMe::merge(const Container &left, const Container &right)
     return result;
 }
 
+
+// ? Step 3: Find and Move Smallest
+// ? This function will iterate through the Min container to find its smallest integer,
+// ? once found, the integer is moved at the start of Max.
+// * Exemple :
+// * Min : 5 18 9 0
+// * Max : 20 30 40 50
+// * Move 0 at the start of Max
+// * New Max : 0 20 30 40 50
 template <typename Container>
-void PmergeMe::doFindAndMoveSmallest(Container &cont, Container &Min)
+void PmergeMe::doFindAndMoveSmallest(Container &Max, Container &Min)
 {
 	typename Container::iterator it_min = Min.begin();
 	typename Container::iterator it_save;
@@ -249,9 +315,26 @@ void PmergeMe::doFindAndMoveSmallest(Container &cont, Container &Min)
 	}
 	
 	Min.erase(it_save);
-	cont.insert(cont.begin(), n);
+	Max.insert(Max.begin(), n);
 }
 
+
+// ? Step 4: Finding Insertion Order
+// ? This function will determine the right order of insertion, and will move
+// ? the integers from Min, into a new containers, in the order they need to be
+// ? inserted in Max.
+// ? The insertion order starts with the integer in the middle of the set,
+// ? and then alternates right and left starting from the middle, till it
+// ? reaches the end of the set of integers on both ends.
+// * Exemple :
+// * 55 12 47 69 88
+// * 47 is the middle, so it's the first to insert
+// * then we alternate left and right till we reach the end on both sides so :
+// * Final insertion order : 47 12 69 55 88
+// ! IF the set of integers is even :
+// ! 55 12 87 69
+// ! 87 is chosen as the middle, then we follow the logic above.
+// ? They are all added into the to_insert container, for easier insertion.
 template <typename Container>
 void PmergeMe::doFindInsertionOrder(Container &to_insert, Container &Min)
 {
@@ -279,9 +362,43 @@ void PmergeMe::doFindInsertionOrder(Container &to_insert, Container &Min)
 		to_insert.insert(to_insert.begin(), *it_end);
 }
 
+// ? Step 5.1: Jacobsthal?
+// ? This function will insert "to_insert" into Max.
+// ? - The first loop; will insert integers into Max, using number of the Jacobsthal Suite
+// ? as index, until the index > than the side of the container, then we send integers to
+// ? a subsequent function, to insert the integer into Max.
+// * Exemple:
+// * Set of integers : 10 9 8 7 6
+// * Jacobsthal Suite : 0 1 1 3 5 11...
+// * So we first insert the index 0, so 10, remainder is 9 8 7 6
+// * Then the index 1, so 8, remainder is 9 7 6
+// * Lastly, the index 1 again so 7 and remainder is 9 6
+// * The next number in the jacobsthal suite is 3 but we only have 2 integers left.
+// * So we're done using Jacobsthal and we just sequentially move the remaining integers.
+// ? - The second loop; will insert into Max sequentially, simply sending the integers
+// ? to the insertion function.
 template <typename Container>
 void PmergeMe::doInsertionAndBinarySearch(Container &to_insert, Container &Max)
 {
+	int j1 = 0;
+	int j2 = 1;
+	long unsigned int ins = 0;
+	
+	while (!to_insert.empty() && ins <= to_insert.size())
+	{ 
+		typename Container::iterator it_jacob = to_insert.begin();
+		std::advance(it_jacob, ins);
+		
+		doSearchPositionAndInsert(Max, *it_jacob);
+		to_insert.erase(it_jacob);
+		
+		ins = (j1 * 2) + j2;
+		j1 = j2;
+		j2 = ins;
+	}
+	
+	std::cout << "prout" << '\n';
+	
 	while (!to_insert.empty())
 	{
 		typename Container::iterator it_insert = to_insert.begin();
@@ -290,6 +407,23 @@ void PmergeMe::doInsertionAndBinarySearch(Container &to_insert, Container &Max)
 	}
 }
 
+// ? Step 5.2: Insertion and Binary Search
+// ? This function will search in Max the position where N should be inserted.
+// ? The position is obtained through binary searches.
+// ? We cut Max in two halves, left and right. We compare N with the middle of Max,
+// ? if N > middle integer in Max, we will continue with the right half, and the left half
+// ? if N < middle integer in Max.
+// ? We then apply the same process to the half where N belongs, until N's position is found.
+// * Exemple:
+// * Max: 1 3 5 6 7 8 9
+// * N: 4
+// * N < 6
+// * So we deal with the left half
+// * Left Max: 1 3 5 6
+// * We pick 5 as middle and N < 5
+// * New Left Max: 1 3 5
+// * N > 3  AND N < 5 (last middle)
+// * N needs to be inserted after 3
 template <typename Container>
 void PmergeMe::doSearchPositionAndInsert(Container &Max, int n)
 {

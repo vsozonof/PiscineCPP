@@ -6,11 +6,32 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 08:09:18 by vsozonof          #+#    #+#             */
-/*   Updated: 2025/01/14 20:41:35 by vsozonof         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:50:35 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+int	checkDupes(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 1;
+	while (argv[i])
+	{
+		while (argv[j])
+		{
+			if (atoi(argv[i]) == atoi(argv[j]) && (j != i))
+				return 0;
+			j++;
+		}
+		j = 1;
+		i++;
+	}
+	return (1);
+}
 
 void	checkArgs(int argc, char **argv)
 {
@@ -26,6 +47,12 @@ void	checkArgs(int argc, char **argv)
 			}
 		}
 	}
+
+	if (!checkDupes(argv))
+	{
+		std::cerr << BOLD_RED "Error:" DEFAULT << " duplicate detected"<< std::endl;
+		exit(1);
+	}	
 }
 
 int main(int argc, char **argv)

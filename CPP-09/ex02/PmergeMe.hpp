@@ -6,7 +6,7 @@
 /*   By: vsozonof <vsozonof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 08:12:24 by vsozonof          #+#    #+#             */
-/*   Updated: 2025/02/24 19:51:19 by vsozonof         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:32:26 by vsozonof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void PmergeMe::FordJohnson(Container &cont)
 {
 	std::cout << "Before sorting: ";
 	typename Container::iterator it = cont.begin();
-	for (int i = 0; i <= 9; i++)
+	for (unsigned int i = 0; i <= 9 && i < cont.size(); i++)
 	{
 		std::cout << "[" << *it << "] ";
 		it++;
@@ -93,7 +93,7 @@ void PmergeMe::FordJohnson(Container &cont)
 
 	std::cout << "After sorting:  ";
 	it = cont.begin();
-	for (int i = 0; i <= 9; i++)
+	for (unsigned int i = 0; i <= 9 && i < cont.size(); i++)
 	{
 		std::cout << "[" << *it << "] ";
 		it++;
@@ -384,7 +384,7 @@ void PmergeMe::doInsertionAndBinarySearch(Container &to_insert, Container &Max)
 	int j2 = 1;
 	long unsigned int ins = 0;
 	
-	while (!to_insert.empty() && ins <= to_insert.size())
+	while (!to_insert.empty() && ins < to_insert.size())
 	{ 
 		typename Container::iterator it_jacob = to_insert.begin();
 		std::advance(it_jacob, ins);
@@ -396,9 +396,7 @@ void PmergeMe::doInsertionAndBinarySearch(Container &to_insert, Container &Max)
 		j1 = j2;
 		j2 = ins;
 	}
-	
-	std::cout << "prout" << '\n';
-	
+		
 	while (!to_insert.empty())
 	{
 		typename Container::iterator it_insert = to_insert.begin();
@@ -434,10 +432,13 @@ void PmergeMe::doSearchPositionAndInsert(Container &Max, int n)
 	{
 		typename Container::iterator it_middle = it_start;
 		std::advance(it_middle, std::distance(it_start, it_end) / 2);
-		
+
 		if (n > *it_middle)
-			it_start = ++it_middle;
-		else if (n < *it_middle)
+		{
+			it_start = it_middle;
+			++it_start;
+		}
+		else
 			it_end = it_middle;
 	}
 
